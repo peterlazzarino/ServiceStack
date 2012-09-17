@@ -27,8 +27,8 @@ namespace ServiceStack.ServiceInterface
             var sessionOptions = GetSessionOptions(httpReq);
 
             return sessionOptions.Contains(SessionOptions.Permanent)
-                ? httpReq.GetItemOrCookie(SessionFeature.PermanentSessionId)
-                : httpReq.GetItemOrCookie(SessionFeature.SessionId);
+                ? httpReq.GetParam(SessionFeature.PermanentSessionId)
+                : httpReq.GetParam(SessionFeature.SessionId);
         }
 
         public static string GetPermanentSessionId(this IHttpRequest httpReq)
